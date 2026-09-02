@@ -65,5 +65,9 @@ int SensorNivel::totalLeituras() const {
 
 std::string SensorNivel::resumo() const {
     const std::string sufixo = unidade_.empty() ? "" : " " + unidade_;
-    return tag_ + ": " + formatarValor(valor_) + sufixo;
+    const std::string estado = ativo_ ? "ativo" : "inativo";
+
+    return tag_ + ": " + formatarValor(valor_) + sufixo
+        + " | " + estado
+        + " | leituras: " + std::to_string(total_leituras_);
 }

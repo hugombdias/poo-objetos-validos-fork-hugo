@@ -51,4 +51,5 @@ class SensorNivel:
 
     def resumo(self) -> str:
         sufixo = f" {self._unidade}" if self._unidade else ""
-        return f"{self._tag}: {self._valor:g}{sufixo}"
+        estado = "ativo" if self._ativo else "inativo"
+        return f"{self._tag}: {self._valor:g}{sufixo} | {estado} | leituras: {self._total_leituras}"
